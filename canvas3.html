@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Canvas</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="1500" height="1000"></canvas>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // We first create a variable x that will hold the horizontal position of our circle.
+        let x = 50;
+        let y = 800
+
+        // We then define a draw() function that will be called every time we want to redraw the Canvas.
+        function draw() {
+          // Inside the draw() function, we first clear the Canvas using the clearRect() method. 
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          // We then draw a circle at the current position of x using the arc() method. 
+          ctx.beginPath();
+          ctx.rect(x, 300, 80, 10, 2 * Math.PI);
+          ctx.fillStyle = 'blue';
+          ctx.fill();
+          ctx.beginPath();
+          ctx.rect(y, 200, 80, 10, 2 * Math.PI);
+          ctx.fillStyle = 'blue';
+          ctx.fill();
+          ctx.beginPath();
+          ctx.rect(y, 400, 80, 10, 2 * Math.PI);
+          ctx.fillStyle = 'blue';
+          ctx.fill();ctx.beginPath();
+          ctx.rect(y, 700, 80, 10, 2 * Math.PI);
+          ctx.fillStyle = 'blue';
+          ctx.fill();ctx.beginPath();
+          ctx.rect(y, 100, 80, 10, 2 * Math.PI);
+          ctx.fillStyle = 'blue';
+          ctx.fill();ctx.beginPath();
+          ctx.rect(y, 900, 80, 10, 2 * Math.PI);
+          ctx.fillStyle = 'blue';
+          ctx.fill();
+          // We then increase the value of x by 5 pixels, and if x goes off the right edge
+          x -= 1;
+          if (x > canvas.width + 50) {
+            x = -50;
+          }
+          y += 5;
+          if (y > canvas.width + 50) {
+            y = -50;
+          }
+
+          requestAnimationFrame(draw);
+        }
+
+        requestAnimationFrame(draw);
+    </script>
+</body>
+</html>

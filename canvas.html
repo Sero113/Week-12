@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Canvas</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="1000" height="1000"></canvas>
+    <!--    
+        In this example, we've created a Canvas element with the ID "myCanvas". 
+        You can set the width and height of the Canvas element using CSS or JavaScript.
+
+        Now, let's create some simple drawings using Canvas.
+        Drawing Shapes with JavaScript Canvas
+
+        The first thing we can do with Canvas is draw simple shapes like circles, squares, and rectangles. 
+        To do this, we'll use JavaScript code to define the shape and its attributes, like its size, color, and position. 
+    -->
+    <script>
+        // In this code, we first get a reference to the Canvas element using its ID, "myCanvas".
+        const canvas = document.getElementById('myCanvas');
+        // We then create a "2D context" for the Canvas using the getContext() method.
+        const ctx = canvas.getContext('2d');
+
+        // Next, we use the beginPath() method to start a new drawing path on the Canvas.
+        ctx.beginPath();
+        // In this code, we use the rect() method to draw a square at the coordinates (50, 50), with a width and height of 100. 
+        ctx.rect(250, 500, 100, 800, 2 * Math.PI);
+        // We then set the fill style to blue and fill the square.
+        ctx.fillStyle = 'grey';
+        ctx.fill();
+        ctx.beginPath();
+        // In this code, we use the rect() method to draw a square at the coordinates (50, 50), with a width and height of 100. 
+        ctx.arc(200, 500, 100, 0, 2 * Math.PI);
+        // We then set the fill style to blue and fill the square.
+        ctx.fillStyle = 'black';
+        ctx.fill();
+        
+
+      
+    </script>
+</body>
+</html>

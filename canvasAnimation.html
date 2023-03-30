@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stick Figure Animation Example</title>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="1200" height="600"></canvas>
+    <script>
+      // Get canvas element and context
+      const canvas = document.getElementById('myCanvas');
+      const ctx = canvas.getContext('2d');
+
+      // Set up background
+      const backgroundImage = new Image();
+      backgroundImage.src = 'https://c.stocksy.com/a/g5Z500/z9/1326532.jpg';
+      backgroundImage.onload = function() {
+        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+      };
+
+      // Set up stick figure
+      const stickFigureImage = new Image();
+      stickFigureImage.src = 'images/Bald-dog.png';
+      let stickFigureX = 100;
+      let stickFigureY = 20;
+
+      // Define animation function
+      function draw() {
+        // Clear canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw background
+        ctx.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
+
+        // Draw stick figure
+        ctx.drawImage(stickFigureImage, stickFigureX, stickFigureY);
+
+        // Update position
+        stickFigureX += 20;
+
+        // Loop animation
+        if (stickFigureX > canvas.width) {
+          stickFigureX = -stickFigureImage.width;
+        }
+
+        // Call animation again
+        requestAnimationFrame(draw);
+      }
+
+      // Start animation
+      draw();
+    </script>
+  </body>
+</html>
